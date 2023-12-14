@@ -1,0 +1,69 @@
+mkdir java-docker
+cd java-docker
+
+gedit Dockerfile
+
+>>>>>>>>add below contents in Dockerfile<<<<<<
+
+# Use Ubuntu as the base image
+FROM ubuntu:latest
+
+# Update and install necessary packages
+RUN apt-get update && apt-get install -y openjdk-11-jdk
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy the Java application to the container
+COPY HelloWorld.java .
+
+# Compile the Java application
+RUN javac HelloWorld.java
+
+# Define the command to run the Java application
+CMD ["java", "HelloWorld"]
+
+
+>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<
+
+gedit HelloWorld.java
+
+>>>>>>>add below contents to java file<<<<<<
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, JAVA application on Docker!");
+    }
+}
+
+>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<
+
+
+docker build -t my-java-app .
+
+docker run my-java-app
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

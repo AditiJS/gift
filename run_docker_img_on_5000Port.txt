@@ -1,0 +1,6 @@
+>>>run docker image on 5000 port<<<<<
+
+
+sudo docker images
+
+docker run -d -p 5000:5000 <your_image_name>
